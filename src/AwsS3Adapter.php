@@ -693,6 +693,9 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
             if ($e->getStatusCode() === 403) {
                 return false;
             }
+            if ($e->getStatusCode() === 404) {
+                return false;
+            }
 
             throw $e;
         }
